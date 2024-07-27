@@ -23,13 +23,16 @@ return new class extends Migration
 
 
 
-        Schema::create('groups', function (Blueprint $table) {
-            $table->foreignId('last_message_id')->constrained('messages');
+        Schema::table('groups', function (Blueprint $table) {
+            $table->foreignId('last_message_id')->nullable()->constrained('messages');
         });
 
 
-        Schema::create('conversations', function (Blueprint $table) {
-            $table->foreignId('last_conservation_id')->constrained('conversations');
+        
+
+
+        Schema::table('conversations', function (Blueprint $table) {
+            $table->foreignId('last_message_id')->nullable()->constrained('messages');
         });
     }
 
